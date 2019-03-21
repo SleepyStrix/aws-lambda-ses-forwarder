@@ -50,6 +50,9 @@ config.forwardMapping = {
     ],
     "info": [
       "info@example.com"
+    ],
+    "*": [ //this should catch any email address
+        "whatever@example.com"
     ]
   }
 
