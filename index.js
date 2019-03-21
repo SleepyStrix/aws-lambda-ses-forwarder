@@ -4,7 +4,10 @@ var AWS = require('aws-sdk');
 
 console.log("AWS Lambda SES Forwarder // @arithmetric // Version 4.2.0");
 
-var defaultConfig = require('config');
+//want to use a different config file? maybe keep your configuration secret?
+//then define the environment variable CONFIG_NAME
+//or example CONFIG_NAME=config-secret
+var defaultConfig = require(process.env.CONFIG_NAME || 'config');
 
 /**
  * Parses the SES event record provided for the `mail` and `receipients` data.
