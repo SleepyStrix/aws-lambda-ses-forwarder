@@ -4,30 +4,7 @@ var AWS = require('aws-sdk');
 
 console.log("AWS Lambda SES Forwarder // @arithmetric // Version 4.2.0");
 
-// Configure the S3 bucket and key prefix for stored raw emails, and the
-// mapping of email addresses to forward from and to.
-//
-// Expected keys/values:
-//
-// - fromEmail: Forwarded emails will come from this verified address
-//
-// - subjectPrefix: Forwarded emails subject will contain this prefix
-//
-// - emailBucket: S3 bucket name where SES stores emails.
-//
-// - emailKeyPrefix: S3 key name prefix where SES stores email. Include the
-//   trailing slash.
-//
-// - forwardMapping: Object where the key is the lowercase email address from
-//   which to forward and the value is an array of email addresses to which to
-//   send the message.
-//
-//   To match all email addresses on a domain, use a key without the name part
-//   of an email address before the "at" symbol (i.e. `@example.com`).
-//
-//   To match a mailbox name on all domains, use a key without the "at" symbol
-//   and domain part of an email address (i.e. `info`).
-var defaultConfig = require('config')
+var defaultConfig = require('config');
 
 /**
  * Parses the SES event record provided for the `mail` and `receipients` data.
